@@ -1,0 +1,188 @@
+{
+  "contentType": "application/vnd.gorules.decision",
+  "edges": [
+    {
+      "id": "f6ebb145-3a13-45c0-96f6-7b1427fca88c",
+      "sourceId": "b87f03e2-ca6d-4901-9a0a-28810a1b934f",
+      "type": "edge",
+      "targetId": "2e22d78b-bd1d-48df-ae33-22fb889f17e7"
+    },
+    {
+      "id": "64f65d58-7031-4d5c-95ab-045646af3993",
+      "sourceId": "2e22d78b-bd1d-48df-ae33-22fb889f17e7",
+      "type": "edge",
+      "targetId": "187e934a-7a5d-4e79-b2eb-df8fd69406be"
+    },
+    {
+      "id": "cb2cd7ea-38a7-4582-84ac-dd2f6efddc22",
+      "sourceId": "187e934a-7a5d-4e79-b2eb-df8fd69406be",
+      "type": "edge",
+      "targetId": "d43edec1-decc-4ac9-bde9-c64802ccb38c"
+    }
+  ],
+  "nodes": [
+    {
+      "name": "benefit_request",
+      "id": "b87f03e2-ca6d-4901-9a0a-28810a1b934f",
+      "position": {
+        "x": 180,
+        "y": 140
+      },
+      "type": "inputNode"
+    },
+    {
+      "name": "myResponse",
+      "id": "d43edec1-decc-4ac9-bde9-c64802ccb38c",
+      "position": {
+        "x": 1245,
+        "y": 140
+      },
+      "type": "outputNode"
+    },
+    {
+      "name": "Benefit",
+      "content": {
+        "hitPolicy": "first",
+        "inputs": [
+          {
+            "id": "cded1aff-e884-420d-884a-6a0e29211d53",
+            "name": "Input",
+            "type": "expression"
+          },
+          {
+            "id": "c1af1b17-1546-4710-ace9-4cd9072cbca3",
+            "type": "expression",
+            "field": "transaction.code",
+            "name": "Transaction Code"
+          },
+          {
+            "id": "7a122b06-7aab-4ccd-b6f9-06f723497594",
+            "type": "expression",
+            "field": "transaction.amount",
+            "name": "Transaction Amount"
+          },
+          {
+            "id": "a760b624-af98-4da1-bf96-2519a577edd4",
+            "type": "expression",
+            "field": "pricing.code",
+            "name": "Pricing Code"
+          },
+          {
+            "id": "23212420-56cc-4e25-b739-42c263ee4a84",
+            "type": "expression",
+            "field": "analytics.avgsalary",
+            "name": "Analytics Avgsalary"
+          },
+          {
+            "id": "5bbeccb5-1af1-4a63-890e-8a74aa7090f4",
+            "type": "expression",
+            "field": "analytics.lastmonthdds",
+            "name": "Analytics Lastmonthdds"
+          },
+          {
+            "id": "1f0491c5-22b5-46b8-9e0d-5944da93d709",
+            "type": "expression",
+            "field": "transaction.channel",
+            "name": "Transaction Channel"
+          },
+          {
+            "id": "41ed1041-9958-476f-9e68-e4be66566e4c",
+            "type": "expression",
+            "field": "counters.code",
+            "name": "Counters Code"
+          },
+          {
+            "id": "eecf9600-5bd6-493d-96b6-23b69490345e",
+            "type": "expression",
+            "field": "counters.value",
+            "name": "Counters Value"
+          }
+        ],
+        "outputs": [
+          {
+            "field": "pricing",
+            "id": "655703f7-ac0e-4fcb-8a4c-158ff085e725",
+            "name": "Pricing Data",
+            "type": "expression"
+          },
+          {
+            "id": "35d01e1c-164f-429b-93d2-918ca867d116",
+            "type": "expression",
+            "field": "benefit.amount",
+            "name": "Benefit Amount"
+          },
+          {
+            "id": "85718986-b0a6-41c8-b661-c163baee723a",
+            "type": "expression",
+            "field": "benefit.percentage",
+            "name": "Benefit Percentage",
+            "defaultValue": "100"
+          }
+        ],
+        "rules": [
+          {
+            "_id": "e149f678-8023-487e-94dd-9ec250db0c7b",
+            "cded1aff-e884-420d-884a-6a0e29211d53": "",
+            "c1af1b17-1546-4710-ace9-4cd9072cbca3": "\"INTERNAL_TRANSFER\"",
+            "7a122b06-7aab-4ccd-b6f9-06f723497594": ">0",
+            "a760b624-af98-4da1-bf96-2519a577edd4": "\"INTCHARGE\"",
+            "23212420-56cc-4e25-b739-42c263ee4a84": "<300000",
+            "5bbeccb5-1af1-4a63-890e-8a74aa7090f4": ">2",
+            "1f0491c5-22b5-46b8-9e0d-5944da93d709": "\"MOBILE\"",
+            "41ed1041-9958-476f-9e68-e4be66566e4c": "\"INTCHARGE\"",
+            "eecf9600-5bd6-493d-96b6-23b69490345e": "<5",
+            "655703f7-ac0e-4fcb-8a4c-158ff085e725": "pricing",
+            "35d01e1c-164f-429b-93d2-918ca867d116": "100",
+            "85718986-b0a6-41c8-b661-c163baee723a": "50"
+          },
+          {
+            "_id": "c3e53917-f5b9-4a53-9fe2-ebe6bd513dc9",
+            "cded1aff-e884-420d-884a-6a0e29211d53": "",
+            "c1af1b17-1546-4710-ace9-4cd9072cbca3": "\"INTERNAL_TRANSFER\"",
+            "7a122b06-7aab-4ccd-b6f9-06f723497594": ">0",
+            "a760b624-af98-4da1-bf96-2519a577edd4": "\"INTCHARGE\"",
+            "23212420-56cc-4e25-b739-42c263ee4a84": "<500000",
+            "5bbeccb5-1af1-4a63-890e-8a74aa7090f4": ">2",
+            "1f0491c5-22b5-46b8-9e0d-5944da93d709": "\"MOBILE\"",
+            "41ed1041-9958-476f-9e68-e4be66566e4c": "\"INTCHARGE\"",
+            "eecf9600-5bd6-493d-96b6-23b69490345e": "<10",
+            "655703f7-ac0e-4fcb-8a4c-158ff085e725": "pricing",
+            "35d01e1c-164f-429b-93d2-918ca867d116": "100",
+            "85718986-b0a6-41c8-b661-c163baee723a": "50"
+          },
+          {
+            "_id": "64d1d38d-a783-4324-b93f-db654d2931ed",
+            "cded1aff-e884-420d-884a-6a0e29211d53": "",
+            "c1af1b17-1546-4710-ace9-4cd9072cbca3": "\"INTERNAL_TRANSFER\"",
+            "7a122b06-7aab-4ccd-b6f9-06f723497594": ">0",
+            "a760b624-af98-4da1-bf96-2519a577edd4": "\"INTCHARGE\"",
+            "23212420-56cc-4e25-b739-42c263ee4a84": "<700000",
+            "5bbeccb5-1af1-4a63-890e-8a74aa7090f4": ">2",
+            "1f0491c5-22b5-46b8-9e0d-5944da93d709": "\"MOBILE\"",
+            "41ed1041-9958-476f-9e68-e4be66566e4c": "\"INTCHARGE\"",
+            "eecf9600-5bd6-493d-96b6-23b69490345e": "<12",
+            "655703f7-ac0e-4fcb-8a4c-158ff085e725": "pricing",
+            "35d01e1c-164f-429b-93d2-918ca867d116": "100",
+            "85718986-b0a6-41c8-b661-c163baee723a": "50"
+          }
+        ]
+      },
+      "id": "2e22d78b-bd1d-48df-ae33-22fb889f17e7",
+      "position": {
+        "x": 520,
+        "y": 140
+      },
+      "type": "decisionTableNode"
+    },
+    {
+      "name": "BenefitCalculator",
+      "content": "/**\n * @param input\n * @param {{\n *  dayjs: import('dayjs')\n *  Big: import('big.js').BigConstructor\n * }} helpers\n */\nconst handler = (input, { dayjs, Big }) => {\n\nconst { benefit, pricing } = input;\nconst { percentage } = benefit;\nconst {fee} = pricing\nconst {amount} = benefit\n\nfunction eval(){\n   newfee =  fee - fee * (percentage / 100);\n  if (amount > 0){\n      newfee = amount;\n  }\n  return newfee\n}\n\n// Multiply amount with percentage\nvar response= {\n  value: {\n    originalfee: fee,\n    newfee:eval(),\n    benefit: fee - newfee\n  }\n};\n\n  return response;\n}\n",
+      "id": "187e934a-7a5d-4e79-b2eb-df8fd69406be",
+      "position": {
+        "x": 865,
+        "y": 140
+      },
+      "type": "functionNode"
+    }
+  ]
+}

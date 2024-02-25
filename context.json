@@ -1,0 +1,20 @@
+{
+    "transaction":{
+        "code":"INTERNAL_TRANSFER",
+        "amount":100000,
+        "account":"CA678844877",
+        "channel":"MOBILE"
+    },
+    "pricing":{
+        "fee":5000,
+        "code":"INTCHARGE"
+    },
+    "counters":{
+      "code":"INTCHARGE",
+      "value":4
+    },
+    "analytics":{
+        "avgsalary":100000,
+        "lastmonthdds":3
+    }
+}
